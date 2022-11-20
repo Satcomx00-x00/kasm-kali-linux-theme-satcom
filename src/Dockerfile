@@ -30,7 +30,7 @@ RUN ./install.sh -y
 RUN echo 'eval "$(starship init bash)"' >> .bashrc
 
 # Add Starship Theme
-COPY config/starship.toml .config/starship.toml
+COPY src/config/starship.toml .config/starship.toml
 
 # Install Hack Nerd Font
 RUN wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
@@ -40,7 +40,7 @@ RUN unzip Hack.zip -d /usr/local/share/fonts
 RUN apt -y install terminator
 # Set up Nerd font in Terminator
 RUN mkdir .config/terminator
-COPY config/terminator.toml .config/terminator/config
+COPY src/config/terminator.toml .config/terminator/config
 
 
 # Install XFCE Dark Theme
