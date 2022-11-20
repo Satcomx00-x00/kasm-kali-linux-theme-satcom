@@ -1,4 +1,4 @@
-FROM kasmweb/core-ubuntu-bionic:1.10.0
+FROM kasmweb/core-kali-rolling:1.11.0
 USER root
 
 ENV HOME /home/kasm-default-profile
@@ -10,12 +10,13 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 RUN apt update
-RUN apt -y upgrade
-RUN apt -y install openvpn
-RUN apt -y install unzip
+# RUN apt -y upgrade
+RUN apt -y install apt-utils
+RUN apt -y install openvpn unzip wget tilix apt-utils
 
 # Change Background to sth cool
 COPY assets/mr-robot-wallpaper.png  /usr/share/extra/backgrounds/bg_default.png
+COPY assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
 
 # Install Starship
 RUN wget https://starship.rs/install.sh
@@ -34,16 +35,17 @@ RUN unzip Hack.zip -d /usr/local/share/fonts
 
 # Install Terminator
 RUN apt -y install terminator
-
 # Set up Nerd font in Terminator
 RUN mkdir .config/terminator
 COPY config/terminator.toml .config/terminator/config
 
+
 # Install XFCE Dark Theme
-RUN apt install numix-gtk-theme
+# RUN apt -y install numix-gtk-theme
 
 
 ######### End Customizations ###########
+
 
 RUN chown 1000:0 $HOME
 RUN $STARTUPDIR/set_user_permission.sh $HOME
