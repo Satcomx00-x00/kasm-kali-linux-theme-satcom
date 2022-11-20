@@ -15,11 +15,11 @@ RUN apt -y install apt-utils
 RUN apt -y install openvpn unzip wget tilix apt-utils
 
 # Change Background to sth cool
-COPY src/assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
-COPY src/assets/evil-corp.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
-COPY src/assets/mr-robot-walpaper-colored.png  /usr/share/backgrounds/kali/mr-robot-walpaper-colored.png
-COPY src/assets/rick.png  /usr/share/backgrounds/kali/rick.png
-COPY src/assets/wind-psych.png  /usr/share/backgrounds/kali/wind-psych.png
+COPY assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
+COPY assets/evil-corp.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
+COPY assets/mr-robot-walpaper-colored.png  /usr/share/backgrounds/kali/mr-robot-walpaper-colored.png
+COPY assets/rick.png  /usr/share/backgrounds/kali/rick.png
+COPY assets/wind-psych.png  /usr/share/backgrounds/kali/wind-psych.png
 
 # Install Starship
 RUN wget https://starship.rs/install.sh
@@ -30,7 +30,7 @@ RUN ./install.sh -y
 RUN echo 'eval "$(starship init bash)"' >> .bashrc
 
 # Add Starship Theme
-COPY src/config/starship.toml .config/starship.toml
+COPY config/starship.toml .config/starship.toml
 
 # Install Hack Nerd Font
 RUN wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
@@ -40,7 +40,7 @@ RUN unzip Hack.zip -d /usr/local/share/fonts
 RUN apt -y install terminator
 # Set up Nerd font in Terminator
 RUN mkdir .config/terminator
-COPY src/config/terminator.toml .config/terminator/config
+COPY config/terminator.toml .config/terminator/config
 
 
 # Install XFCE Dark Theme
