@@ -15,11 +15,11 @@ RUN apt -y install apt-utils
 RUN apt -y install openvpn unzip wget tilix apt-utils
 
 # Change Background to sth cool
-COPY assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
-COPY assets/evil-corp.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
-COPY assets/mr-robot-walpaper-colored.png  /usr/share/backgrounds/kali/mr-robot-walpaper-colored.png
-COPY assets/rick.png  /usr/share/backgrounds/kali/rick.png
-COPY assets/wind-psych.png  /usr/share/backgrounds/kali/wind-psych.png
+COPY src/assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
+COPY src/assets/evil-corp.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
+COPY src/assets/mr-robot-walpaper-colored.png  /usr/share/backgrounds/kali/mr-robot-walpaper-colored.png
+COPY src/assets/rick.png  /usr/share/backgrounds/kali/rick.png
+COPY src/assets/wind-psych.png  /usr/share/backgrounds/kali/wind-psych.png
 
 # Install Starship
 RUN wget https://starship.rs/install.sh
