@@ -91,7 +91,7 @@ disabled = false
 "clcreative-k8s-staging" = "cl-k8s-staging"
 "clcreative-k8s-production" = "cl-k8s-prod"
 
-[tilix]
-format = "on [ $session_name]($style) "
-background_opacity = 0.9
-disabled = false
+# [tilix]
+# format = "on [ $session_name]($style) "
+# background_opacity = 0.9
+# disabled = false
