@@ -1,4 +1,4 @@
-FROM kasmweb/core-kali-rolling:1.11.0
+FROM kasmweb/core-kali-rolling:1.13.1-rolling
 USER root
 
 ENV HOME /home/kasm-default-profile
@@ -12,7 +12,7 @@ WORKDIR $HOME
 RUN apt update
 # RUN apt -y upgrade
 RUN apt -y install apt-utils
-RUN apt -y install openvpn unzip wget tilix apt-utils
+RUN apt -y install openvpn unzip wget tilix
 
 # Change Background to sth cool
 COPY assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
@@ -44,7 +44,7 @@ COPY config/terminator.toml .config/terminator/config
 
 
 # Install XFCE Dark Theme
-# RUN apt -y install numix-gtk-theme
+RUN apt -y install numix-gtk-theme
 
 
 ######### End Customizations ###########
@@ -56,3 +56,7 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 ENV HOME /home/kasm-user
 WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+
+
+

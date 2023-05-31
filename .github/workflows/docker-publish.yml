@@ -3,28 +3,24 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-#       -
-#         name: Set up QEMU
-#         uses: docker/setup-qemu-action@v2
-      -
-        name: Checkout code
+      #       -
+      #         name: Set up QEMU
+      #         uses: docker/setup-qemu-action@v2
+      - name: Checkout code
         uses: actions/checkout@v3
-      -
-        name: Login to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push to Docker hub
+      - name: Build and push to Docker hub
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: satcomx00/hackbox:latest, satcomx00/hackbox:${{ github.run_number }}
-          
+          tags: satcomx00/kali-satcom-theme-custom:latest, satcomx00/kali-satcom-theme-custom:${{ github.run_number }}

@@ -70,13 +70,6 @@ format = "via [ vagrant $version]($style) "
 [docker_context]
 format = "via [ $context](bold blue) "
 
-[helm]
-format = "via [ $version](bold purple) "
-
-[python]
-symbol = " "
-python_binary = "python3"
-
 [nodejs]
 format = "via [ $version](bold green) "
 disabled = true
@@ -91,7 +84,3 @@ disabled = false
 "clcreative-k8s-staging" = "cl-k8s-staging"
 "clcreative-k8s-production" = "cl-k8s-prod"
 
-[tilix]
-format = "on [ $session_name]($style) "
-background_opacity = 0.9
-disabled = false
