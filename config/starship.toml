@@ -84,3 +84,10 @@ disabled = false
 "clcreative-k8s-staging" = "cl-k8s-staging"
 "clcreative-k8s-production" = "cl-k8s-prod"
 
+<<<<<<< HEAD
+=======
+# [tilix]
+# format = "on [ $session_name]($style) "
+# background_opacity = 0.9
+# disabled = false
+>>>>>>> 284c440561ff635301138f5e53ea18a68339be4b

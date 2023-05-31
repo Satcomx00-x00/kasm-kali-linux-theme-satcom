@@ -1,6 +1,9 @@
 FROM kasmweb/core-kali-rolling:1.13.1-rolling
 USER root
 
+RUN apt -y update
+RUN apt -y upgrade
+
 ENV HOME /home/kasm-default-profile
 ENV STARTUPDIR /dockerstartup
 ENV INST_SCRIPTS $STARTUPDIR/install
@@ -15,11 +18,16 @@ RUN apt -y install apt-utils
 RUN apt -y install openvpn unzip wget tilix
 
 # Change Background to sth cool
+COPY assets/0x0.jpg  /usr/share/backgrounds/kali/kali-layers-16x9.png
+
 COPY assets/mr-robot-wallpaper.png  /usr/share/backgrounds/kali/mr-robot-wallpaper.png 
-COPY assets/evil-corp.png  /usr/share/backgrounds/kali/kali-layers-16x9.png
+COPY assets/evil-corp.png  /usr/share/backgrounds/kali/evil-corp.png
 COPY assets/mr-robot-walpaper-colored.png  /usr/share/backgrounds/kali/mr-robot-walpaper-colored.png
 COPY assets/rick.png  /usr/share/backgrounds/kali/rick.png
 COPY assets/wind-psych.png  /usr/share/backgrounds/kali/wind-psych.png
+COPY assets/0x0.jpg  /usr/share/backgrounds/kali/0x0.jpg
+COPY assets/circuit.jpg  /usr/share/backgrounds/kali/circuit.jpg
+COPY assets/malware.jpg  /usr/share/backgrounds/kali/malware.jpg
 
 # Install Starship
 RUN wget https://starship.rs/install.sh
@@ -39,6 +47,7 @@ RUN unzip Hack.zip -d /usr/local/share/fonts
 # Install Terminator
 RUN apt -y install terminator
 # Set up Nerd font in Terminator
+
 RUN mkdir .config/terminator
 COPY config/terminator.toml .config/terminator/config
 
